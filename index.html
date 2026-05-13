@@ -46,18 +46,19 @@ html, body { height: 100%; width: 100%; overflow: hidden; background: #0f0c08; f
     rgba(15,12,8,0.99) 100%);
 }
 
-.spacer { flex: 1; }
-
 /* Bottom content */
 .hotzone {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   width: 100%;
-  padding: 0 1.6rem calc(1.2rem + env(safe-area-inset-bottom, 0px));
+  padding: 0 1.6rem calc(1.4rem + env(safe-area-inset-bottom, 0px));
 }
 
 /* Urgency bar */
@@ -166,8 +167,6 @@ h1 em { font-style: italic; color: #d4a574; }
   <div class="bg-photo">
     <img src="IMAGEN.jpg" alt="" />
   </div>
-
-  <div class="spacer"></div>
 
   <div class="hotzone">
 
