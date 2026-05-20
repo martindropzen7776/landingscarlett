@@ -1,55 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Anna</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1137865313561057');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1137865313561057&ev=PageView&noscript=1"
-/></noscript>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1137865313561057&ev=PageView&noscript=1"/>
+</noscript>
 <!-- End Meta Pixel Code -->
 
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; width: 100%; overflow: hidden; background: #0f0c08; font-family: "DM Sans", sans-serif; color: #f5efe6; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-.page { position: relative; width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #071018;
+  font-family: "DM Sans", sans-serif;
+  color: #fff;
+}
+
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
 
 /* Background */
-.bg-photo { position: absolute; inset: 0; z-index: 0; }
-.bg-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 8%; animation: fadeIn 1s ease forwards; }
+.bg-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 8%;
+  animation: fadeIn 1s ease forwards;
+}
+
 .bg-photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom,
-    rgba(15,12,8,0) 0%,
-    rgba(15,12,8,0) 30%,
-    rgba(15,12,8,0.6) 52%,
-    rgba(15,12,8,0.93) 65%,
-    rgba(15,12,8,0.97) 75%,
-    rgba(15,12,8,0.99) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(7,16,24,0.05) 0%,
+    rgba(7,16,24,0.22) 35%,
+    rgba(7,16,24,0.78) 60%,
+    rgba(7,16,24,0.96) 100%
+  );
 }
 
 /* Bottom content */
 .hotzone {
   position: absolute;
-  bottom: 25vh;
+  bottom: 18vh;
   left: 0;
   right: 0;
   z-index: 2;
@@ -61,40 +107,90 @@ html, body { height: 100%; width: 100%; overflow: hidden; background: #0f0c08; f
   padding: 0 1.6rem calc(1.4rem + env(safe-area-inset-bottom, 0px));
 }
 
-/* Urgency bar */
+/* ONLINE STATUS */
+.profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(14px);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.6s ease 0.2s both;
+}
+
+.online-dot {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(34,197,94,0.18);
+  animation: pulse 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.profile-badge span {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.88);
+  font-weight: 500;
+}
+
+/* Urgency */
 .urgency {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(201,147,58,0.15);
-  border: 1px solid rgba(201,147,58,0.35);
-  border-radius: 50px;
-  padding: 0.35rem 0.9rem;
-  margin-bottom: 0.75rem;
-  animation: fadeUp 0.6s ease 0.3s both;
+  background: rgba(34,197,94,0.14);
+  border: 1px solid rgba(34,197,94,0.32);
+  border-radius: 999px;
+  padding: 0.38rem 0.95rem;
+  margin-bottom: 0.9rem;
+  animation: fadeUp 0.6s ease 0.35s both;
 }
-.urgency-dot { width: 7px; height: 7px; background: #c9933a; border-radius: 50%; animation: pulse 2s infinite; flex-shrink: 0; }
-.urgency-text { font-size: 0.72rem; letter-spacing: 0.08em; color: #c9933a; font-weight: 500; }
-#countdown { font-variant-numeric: tabular-nums; }
+
+.urgency-dot {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.urgency-text {
+  font-size: 0.73rem;
+  letter-spacing: 0.04em;
+  color: #86efac;
+  font-weight: 500;
+}
+
+#countdown {
+  font-variant-numeric: tabular-nums;
+}
 
 /* Headline */
 h1 {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  font-size: clamp(2.3rem, 7vw, 3.9rem);
   font-weight: 300;
-  line-height: 1.06;
-  color: #f5efe6;
-  margin-bottom: 0.15rem;
+  line-height: 1.04;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
   animation: fadeUp 0.7s ease 0.45s both;
 }
-h1 em { font-style: italic; color: #d4a574; }
+
+h1 em {
+  font-style: italic;
+  color: #7dd3fc;
+}
 
 .sub {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  font-size: clamp(1.1rem, 4vw, 1.55rem);
   font-style: italic;
-  color: rgba(245,239,230,0.55);
-  margin-bottom: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1rem;
   animation: fadeUp 0.7s ease 0.55s both;
 }
 
@@ -104,13 +200,31 @@ h1 em { font-style: italic; color: #d4a574; }
   align-items: center;
   justify-content: center;
   gap: 0.9rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.15rem;
   animation: fadeUp 0.7s ease 0.62s both;
 }
-.stars { color: #c9933a; font-size: 0.85rem; letter-spacing: 0.05em; }
-.divider { width: 1px; height: 14px; background: rgba(245,239,230,0.2); }
-.subs { font-size: 0.75rem; color: rgba(245,239,230,0.55); font-weight: 400; }
-.subs strong { color: rgba(245,239,230,0.85); font-weight: 500; }
+
+.stars {
+  color: #7dd3fc;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.16);
+}
+
+.subs {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.subs strong {
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+}
 
 /* CTA */
 .cta {
@@ -120,114 +234,201 @@ h1 em { font-style: italic; color: #d4a574; }
   gap: 0.7rem;
   width: 100%;
   max-width: 340px;
-  background: #24a1de;
+  background: linear-gradient(135deg, #2AABEE, #229ED9);
   color: #fff;
   text-decoration: none;
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 700;
   padding: 1rem 1.8rem;
-  border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(36,161,222,0.45);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 999px;
+  box-shadow: 0 10px 34px rgba(34,158,217,0.48);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   animation: fadeUp 0.7s ease 0.72s both;
   -webkit-tap-highlight-color: transparent;
 }
-.cta:active { transform: scale(0.97); box-shadow: 0 4px 16px rgba(36,161,222,0.3); }
+
+.cta:hover {
+  transform: translateY(-1px);
+}
+
+.cta:active {
+  transform: scale(0.97);
+}
+
+.cta::before {
+  content: "✈";
+  font-size: 1.15rem;
+}
 
 /* Micro CTA */
 .micro-cta {
-  margin-top: 0.7rem;
-  font-size: 0.72rem;
-  color: rgba(245,239,230,0.35);
+  margin-top: 0.8rem;
+  font-size: 0.73rem;
+  color: rgba(255,255,255,0.5);
   animation: fadeUp 0.7s ease 0.82s both;
-  letter-spacing: 0.03em;
 }
-.micro-cta span { color: rgba(245,239,230,0.55); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Desktop */
 @media (min-width: 641px) {
+
   .bg-photo::after {
     background:
-      linear-gradient(to right, rgba(15,12,8,0.05) 0%, rgba(15,12,8,0.6) 50%, rgba(15,12,8,0.97) 100%),
-      linear-gradient(to top, rgba(15,12,8,0.4) 0%, transparent 35%);
+      linear-gradient(to right,
+        rgba(7,16,24,0.05) 0%,
+        rgba(7,16,24,0.55) 48%,
+        rgba(7,16,24,0.95) 100%),
+      linear-gradient(to top,
+        rgba(7,16,24,0.4) 0%,
+        transparent 35%);
   }
-  .hotzone { align-items: flex-end; text-align: right; padding: 0 4rem 3rem; max-width: 560px; margin-left: auto; }
-  .cta { max-width: 320px; }
-  .urgency { align-self: flex-end; }
-  .social-proof { justify-content: flex-end; }
+
+  .hotzone {
+    align-items: flex-end;
+    text-align: right;
+    padding: 0 4rem 3rem;
+    max-width: 560px;
+    margin-left: auto;
+  }
+
+  .urgency,
+  .profile-badge {
+    align-self: flex-end;
+  }
+
+  .social-proof {
+    justify-content: flex-end;
+  }
+
+  .cta {
+    max-width: 320px;
+  }
 }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
 </style>
 </head>
+
 <body>
+
 <div class="page">
+
+  <!-- Background image -->
   <div class="bg-photo">
     <img src="IMAGEN.jpg" alt="" />
   </div>
 
   <div class="hotzone">
 
-    <!-- Urgency bar -->
+    <!-- ONLINE BADGE -->
+    <div class="profile-badge">
+      <div class="online-dot"></div>
+      <span>Anna is online now · replies on Telegram</span>
+    </div>
+
+    <!-- URGENCY -->
     <div class="urgency">
       <div class="urgency-dot"></div>
-      <span class="urgency-text">This gift expires in <span id="countdown">23:47</span></span>
+      <span class="urgency-text">
+        Online for the next <span id="countdown">23:47</span>
+      </span>
     </div>
 
-    <!-- Headline -->
-    <h1>I have something<br><em>just for you</em></h1>
-    <p class="sub">only for you 😈</p>
+    <!-- HEADLINE -->
+    <h1>
+      I have something<br>
+      <em>just for you</em>
+    </h1>
 
-    <!-- Social proof -->
+    <p class="sub">
+      open my private telegram 😈
+    </p>
+
+    <!-- SOCIAL PROOF -->
     <div class="social-proof">
       <span class="stars">★★★★★</span>
+
       <div class="divider"></div>
-      <span class="subs"><strong>+2,400</strong> fans already inside</span>
+
+      <span class="subs">
+        <strong>+2,400</strong> already chatting with me
+      </span>
     </div>
 
-    <!-- CTA -->
-    <a href="https://www.fanvue.com/anamarieoff"
-       class="cta"
-       target="_blank"
-       rel="noopener"
-       onclick="fbq('track', 'AddPaymentInfo');">
-      Claim my gift →
+    <!-- TELEGRAM CTA -->
+    <a
+      href="https://t.me/USERNAME"
+      class="cta"
+      target="_blank"
+      rel="noopener"
+      onclick="fbq('track', 'Lead');"
+    >
+      Message me on Telegram
     </a>
+
+    <p class="micro-cta">
+      Tap to open a private Telegram chat
+    </p>
 
   </div>
 </div>
 
 <script>
-  // Countdown timer — persists across reloads via localStorage
-  (function () {
-    const KEY = 'anna_cd_end';
-    const DURATION = 23 * 60 + 47; // seconds
-    let endTime = localStorage.getItem(KEY);
+(function () {
 
-    if (!endTime) {
-      endTime = Date.now() + DURATION * 1000;
-      localStorage.setItem(KEY, endTime);
-    } else {
-      endTime = parseInt(endTime);
+  const KEY = 'anna_cd_end';
+  const DURATION = 23 * 60 + 47;
+
+  let endTime = localStorage.getItem(KEY);
+
+  if (!endTime) {
+    endTime = Date.now() + DURATION * 1000;
+    localStorage.setItem(KEY, endTime);
+  } else {
+    endTime = parseInt(endTime);
+  }
+
+  function update() {
+
+    const remaining = Math.max(
+      0,
+      Math.floor((endTime - Date.now()) / 1000)
+    );
+
+    const m = String(Math.floor(remaining / 60)).padStart(2, '0');
+    const s = String(remaining % 60).padStart(2, '0');
+
+    document.getElementById('countdown').textContent = `${m}:${s}`;
+
+    if (remaining <= 0) {
+      localStorage.removeItem(KEY);
     }
+  }
 
-    function update() {
-      const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
-      const m = String(Math.floor(remaining / 60)).padStart(2, '0');
-      const s = String(remaining % 60).padStart(2, '0');
-      document.getElementById('countdown').textContent = m + ':' + s;
+  update();
+  setInterval(update, 1000);
 
-      if (remaining <= 0) {
-        // Reset for next visit
-        localStorage.removeItem(KEY);
-      }
-    }
-
-    update();
-    setInterval(update, 1000);
-  })();
+})();
 </script>
+
 </body>
 </html>
