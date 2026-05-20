@@ -7,14 +7,23 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
+<!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
 fbq('init', '1137865313561057');
 fbq('track', 'PageView');
@@ -26,220 +35,307 @@ src="https://www.facebook.com/tr?id=1137865313561057&ev=PageView&noscript=1"/>
 </noscript>
 
 <style>
+
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #071018;
-  font-family: "DM Sans", sans-serif;
-  color: #fff;
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+
+  background:#071018;
+
+  font-family:"DM Sans",sans-serif;
+
+  color:#fff;
 }
 
-.page {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+.page{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
 }
 
-.bg-photo {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+/* BACKGROUND */
+
+.bg-photo{
+  position:absolute;
+  inset:0;
+  z-index:0;
 }
 
-.bg-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  animation: fadeIn 1s ease forwards;
+.bg-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+
+  animation:fadeIn 1s ease forwards;
 }
 
-.bg-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
+.bg-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
     to bottom,
-    rgba(7,16,24,0.05) 0%,
-    rgba(7,16,24,0.18) 35%,
-    rgba(7,16,24,0.82) 68%,
+    rgba(7,16,24,0.02) 0%,
+    rgba(7,16,24,0.15) 30%,
+    rgba(7,16,24,0.78) 68%,
     rgba(7,16,24,0.98) 100%
   );
 }
 
-.hotzone {
-  position: absolute;
-  bottom: 17vh;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  padding: 0 1.6rem;
+/* CONTENT */
+
+.hotzone{
+  position:absolute;
+  bottom:17vh;
+  left:0;
+  right:0;
+
+  z-index:2;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+
+  width:100%;
+
+  padding:0 1.6rem;
 }
 
-.profile-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.14);
-  backdrop-filter: blur(16px);
-  padding: 0.65rem 1rem;
-  border-radius: 999px;
-  margin-bottom: 1rem;
-  animation: fadeUp 0.7s ease 0.2s both;
+/* ONLINE BADGE */
+
+.profile-badge{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+
+  background:rgba(255,255,255,.10);
+
+  border:1px solid rgba(255,255,255,.14);
+
+  backdrop-filter:blur(16px);
+
+  padding:.65rem 1rem;
+
+  border-radius:999px;
+
+  margin-bottom:1rem;
+
+  animation:fadeUp .7s ease .2s both;
 }
 
-.online-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 5px rgba(34,197,94,0.18);
-  animation: pulse 1.5s infinite;
+.online-dot{
+  width:10px;
+  height:10px;
+
+  border-radius:50%;
+
+  background:#22c55e;
+
+  box-shadow:
+    0 0 0 5px rgba(34,197,94,.18);
+
+  animation:pulse 1.5s infinite;
 }
 
-.profile-badge span {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.92);
-  font-weight: 500;
+.profile-badge span{
+  font-size:.82rem;
+
+  color:rgba(255,255,255,.92);
+
+  font-weight:500;
 }
 
-h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.4rem, 7vw, 4rem);
-  line-height: 1.02;
-  font-weight: 300;
-  margin-bottom: 0.2rem;
-  color: #fff;
-  animation: fadeUp 0.7s ease 0.35s both;
+/* HEADLINE */
+
+h1{
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:clamp(2.5rem,7vw,4rem);
+
+  line-height:1.02;
+
+  font-weight:300;
+
+  margin-bottom:.2rem;
+
+  color:#fff;
+
+  animation:fadeUp .7s ease .35s both;
 }
 
-h1 em {
-  color: #7dd3fc;
-  font-style: italic;
+h1 em{
+  color:#7dd3fc;
+  font-style:italic;
 }
 
-.sub {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
-  font-size: clamp(1.1rem, 4vw, 1.55rem);
-  color: rgba(255,255,255,0.62);
-  margin-bottom: 1.25rem;
-  animation: fadeUp 0.7s ease 0.45s both;
+.sub{
+  font-family:"Cormorant Garamond",serif;
+
+  font-style:italic;
+
+  font-size:clamp(1.1rem,4vw,1.55rem);
+
+  color:rgba(255,255,255,.62);
+
+  margin-bottom:1.3rem;
+
+  animation:fadeUp .7s ease .45s both;
 }
 
-.cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  width: 100%;
-  max-width: 360px;
-  background: linear-gradient(135deg, #2AABEE, #229ED9);
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 1rem 1.5rem;
-  border-radius: 999px;
-  box-shadow: 0 12px 34px rgba(34,158,217,0.45);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: fadeUp 0.7s ease 0.58s both;
-  -webkit-tap-highlight-color: transparent;
+/* BUTTON */
+
+.cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:.7rem;
+
+  width:100%;
+  max-width:360px;
+
+  background:#ffffff;
+
+  color:#229ED9;
+
+  text-decoration:none;
+
+  font-size:1rem;
+  font-weight:700;
+
+  padding:1rem 1.5rem;
+
+  border-radius:999px;
+
+  box-shadow:
+    0 12px 34px rgba(255,255,255,.18);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+
+  animation:fadeUp .7s ease .58s both;
+
+  -webkit-tap-highlight-color:transparent;
 }
 
-.cta:hover {
-  transform: translateY(-1px);
+.cta:hover{
+  transform:translateY(-1px);
 }
 
-.cta:active {
-  transform: scale(0.97);
+.cta:active{
+  transform:scale(.97);
 }
 
-.cta svg {
-  width: 18px;
-  height: 18px;
-  fill: white;
-  opacity: 0.95;
-  flex-shrink: 0;
+.cta svg{
+  width:18px;
+  height:18px;
+
+  fill:#229ED9;
+
+  opacity:1;
+
+  flex-shrink:0;
 }
 
-.micro-cta {
-  margin-top: 0.8rem;
-  font-size: 0.73rem;
-  color: rgba(255,255,255,0.5);
-  animation: fadeUp 0.7s ease 0.68s both;
+/* MICRO TEXT */
+
+.micro-cta{
+  margin-top:.8rem;
+
+  font-size:.73rem;
+
+  color:rgba(255,255,255,.5);
+
+  animation:fadeUp .7s ease .68s both;
 }
 
-@media (min-width: 641px) {
-  .bg-photo::after {
+/* DESKTOP */
+
+@media (min-width:641px){
+
+  .bg-photo::after{
     background:
       linear-gradient(
         to right,
-        rgba(7,16,24,0.02) 0%,
-        rgba(7,16,24,0.45) 48%,
-        rgba(7,16,24,0.96) 100%
+        rgba(7,16,24,.02) 0%,
+        rgba(7,16,24,.45) 48%,
+        rgba(7,16,24,.96) 100%
       ),
       linear-gradient(
         to top,
-        rgba(7,16,24,0.4) 0%,
+        rgba(7,16,24,.4) 0%,
         transparent 35%
       );
   }
 
-  .hotzone {
-    align-items: flex-end;
-    text-align: right;
-    padding: 0 4rem 3rem;
-    max-width: 560px;
-    margin-left: auto;
+  .hotzone{
+    align-items:flex-end;
+    text-align:right;
+
+    padding:0 4rem 3rem;
+
+    max-width:560px;
+
+    margin-left:auto;
   }
 
-  .profile-badge {
-    align-self: flex-end;
+  .profile-badge{
+    align-self:flex-end;
   }
 
-  .cta {
-    max-width: 340px;
+  .cta{
+    max-width:340px;
+  }
+
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
   }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(14px);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 }
 
-@keyframes pulse {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0.45; }
+@keyframes pulse{
+  0%,100%{
+    opacity:1;
+  }
+  50%{
+    opacity:.45;
+  }
 }
+
 </style>
 </head>
 
@@ -247,17 +343,21 @@ h1 em {
 
 <div class="page">
 
+  <!-- BACKGROUND -->
   <div class="bg-photo">
     <img src="IMAGEN.png" alt="">
   </div>
 
+  <!-- CONTENT -->
   <div class="hotzone">
 
+    <!-- ONLINE -->
     <div class="profile-badge">
       <div class="online-dot"></div>
       <span>Anna is online now · replies on Telegram</span>
     </div>
 
+    <!-- TITLE -->
     <h1>
       I have something<br>
       <em>just for you</em>
@@ -267,6 +367,7 @@ h1 em {
       open my private telegram 😈
     </p>
 
+    <!-- CTA -->
     <a
       href="https://t.me/USERNAME"
       class="cta"
@@ -274,11 +375,13 @@ h1 em {
       rel="noopener"
       onclick="fbq('track', 'Lead');"
     >
+
       Press /start to receive the gift
 
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M21.944 2.506a1.5 1.5 0 0 0-1.58-.232L2.49 9.83a1.5 1.5 0 0 0 .104 2.807l4.52 1.505 1.506 4.52a1.5 1.5 0 0 0 2.807.104l7.556-17.874a1.5 1.5 0 0 0-.039-1.386zM9.74 13.193l8.427-7.045-6.994 8.478a1.5 1.5 0 0 0-.32.586l-.594 1.782-.818-2.454a1.5 1.5 0 0 0-.701-.847z"/>
       </svg>
+
     </a>
 
     <p class="micro-cta">
