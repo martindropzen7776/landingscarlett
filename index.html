@@ -229,13 +229,15 @@ h1 em{
     transform .2s ease,
     box-shadow .2s ease;
 
-  animation:fadeUp .7s ease .58s both;
+  animation:
+    fadeUp .7s ease .58s both,
+    floatButton 2.6s ease-in-out infinite;
 
   -webkit-tap-highlight-color:transparent;
 }
 
 .cta:hover{
-  transform:translateY(-1px);
+  transform:translateY(-2px) scale(1.02);
 }
 
 .cta:active{
@@ -245,8 +247,10 @@ h1 em{
 .cta svg{
   width:22px;
   height:22px;
+
   flex-shrink:0;
 }
+
 
 /* MICRO TEXT */
 
@@ -331,6 +335,28 @@ h1 em{
   }
 }
 
+@keyframes floatButton{
+
+  0%{
+    transform:scale(1);
+    box-shadow:
+      0 12px 34px rgba(255,255,255,.18);
+  }
+
+  50%{
+    transform:scale(1.045);
+    box-shadow:
+      0 18px 46px rgba(255,255,255,.32);
+  }
+
+  100%{
+    transform:scale(1);
+    box-shadow:
+      0 12px 34px rgba(255,255,255,.18);
+  }
+
+}
+  
 </style>
 </head>
 
